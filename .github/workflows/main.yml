@@ -19,9 +19,11 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
+
       - name: "Grant execute permission"
         run: chmod +x mvnw
         working-directory: HuynhMinhQuan
+
       # 3. Build project
       - name: "Build Spring Boot"
         run: ./mvnw clean package -DskipTests
@@ -36,8 +38,8 @@ jobs:
 
       # 5. Build Docker image
       - name: "Build Docker Image"
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/democi:latest HuynhMinhQuan .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/democi:latest HuynhMinhQuan
 
       # 6. Push lên Docker Hub
       - name: "Push Docker Image"
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/democi:latest HuynhMinhQuan
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/democi:latest
