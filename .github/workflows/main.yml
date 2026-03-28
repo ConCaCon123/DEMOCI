@@ -17,6 +17,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Grant execute permission for mvnw
+        run: chmod +x ./HuynhMinhQuan/mvnw
+
       - name: Build Spring Boot
         run: ./mvnw clean package -DskipTests
         working-directory: HuynhMinhQuan
